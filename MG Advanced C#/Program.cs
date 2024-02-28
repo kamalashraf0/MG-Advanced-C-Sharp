@@ -13,15 +13,19 @@ namespace Metigator_Advanced_C_
             //-------------------------------------------------------------------------//
             //-------------------------------------------------------------------------//
 
-            /*
-             // ClassDef.cs
-            
-            Console.Write("Enter The radius : ");
-            float rad = Convert.ToInt32(Console.ReadLine());
-            ChildClassDef CD = new ChildClassDef(rad);
-            int Pres = Convert.ToInt32(CD.CircleArea());
-            Console.WriteLine(Pres);
-            */
+
+            // ClassDef.cs
+
+            //Console.Write("Enter The radius : ");
+            //float rad = Convert.ToInt32(Console.ReadLine());
+            //ChildClassDef CD = new ChildClassDef(rad);
+            //int Pres = Convert.ToInt32(CD.CircleArea());
+            //Console.WriteLine(Pres);
+
+            //ClassDef PCD = ClassDef.CreateIntance(5);
+            //Console.WriteLine(PCD.CircleArea());
+
+
 
 
             //-------------------------------------------------------------------------//
@@ -62,9 +66,12 @@ namespace Metigator_Advanced_C_
 
 
 
+
+
             Console.ReadKey();
 
         }
+
 
 
 

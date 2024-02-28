@@ -2,6 +2,39 @@
 {
     class Metigator_C_
     {
+
+        //Properties  (Promote Encapsulation) 
+
+        private int _amount;   // You should Introduced a private (backing field) amount to store the actual value of the property.
+        public int Amount      //Accessors get (return the argument) , set (assign to value) 
+        {
+            get
+            {
+                return this._amount;
+            }
+            private set
+            {
+                //Validation             
+                this._amount = ProcessValue(value);
+
+            }
+        }
+
+        public int sal { get; set; }
+
+
+        public void SetAmount(int value) { Amount = value; }
+        public int ProcessValue(int value) => value <= 0 ? 0 : value;
+
+
+
+
+
+
+
+
+
+
         public void Chapter2()
         {
 
@@ -138,14 +171,68 @@
             ///////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////
 
-            //
+            // Boxing and UnBoxing  (Covert from value type to reference type)
+
+            int ss = 1001;
+
+            object xx = ss;     // (Boxing)
+
+            string ns = null;
+            int cc = Convert.ToInt32(ns);   //UnBoxing
+
+            // Console.WriteLine($"{ss} \t {cc}");
+
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            // Bit Converter  (Binary , Decimal , Hexadecimal, octal)
+
+
+
+            //var nums = 10;
+            //var bytes = BitConverter.GetBytes(nums);
+
+            //foreach (var bb in bytes)
+            //{
+            //    var binary = Convert.ToString(bb, 2).PadLeft(8, '0');
+            //    Console.WriteLine(binary);
+            //}
+
+
+            //hexa to Asci To char 
+            string[] harr = { "4B", "41", "4D", "41", "4c" };
+
+            foreach (var hex in harr)
+            {
+                int hx = Convert.ToInt32(hex, 16);
+                //string hc = char.ConvertFromUtf32(hx);
+                char hxc = (char)hx;
+
+                // Console.Write(hc);
+                //Console.Write(hxc);
+
+
+            }
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+
 
 
 
         }
 
-        //String Expression 
-        public string Even(int i) => (i % 2 == 0) ? "Even" : "ODD";
+
+        //Single Expression Body Method
+        public bool Even(int i) => i % 2 == 0;
+
+        public bool ODD(int i) => !Even(i);
+
+        public string EvenOrODD(int i) => (i % 2 == 0) ? "Even" : "ODD";
+
+
 
 
     }

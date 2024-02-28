@@ -18,15 +18,22 @@
             //or perform any actions that need to be taken only once for the entire class
 
             Console.WriteLine("Hello from Base Class");
-            Console.Write("CircleArea =   ");
+
 
         }
 
 
+        //private ClassDef(float radius)
+        //{
+        //    this.radius = radius;
+        //    //A private constructor in a class is a constructor that can only be accessed within the same class.
+        //    //It cannot be accessed or called from outside the class
+        //    //This can be useful for implementing design patterns like the Singleton pattern,
+        //    //where only one instance of a class is allowed.
+        //}
 
 
-
-        // Constructor with a single parameter
+        //Constructor with a single parameter
         public ClassDef(float radius)           //Constructor initialize
         {
             this.radius = radius;
@@ -34,7 +41,7 @@
 
 
 
-        // Parameterless constructor 
+        // Parameterless constructor
         public ClassDef() : this(2.5f)
         {
             //Overload Constructor
@@ -52,9 +59,16 @@
         }
 
 
+
+        public static ClassDef CreateIntance(float radius)           //To Create Instance for private constructor
+        {
+
+            return new ClassDef(radius);
+        }
+
         public double CircleArea()
         {
-            return Math.PI * this.radius * this.radius;
+            return Math.PI * radius * radius;
         }
 
 
