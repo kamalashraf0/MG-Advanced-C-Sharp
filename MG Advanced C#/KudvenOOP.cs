@@ -7,9 +7,9 @@
         /// </summary>
         public void Chapter1()
         {
-            Console.WriteLine("\n");
+            Console.WriteLine("\t");
 
-            //Syntax Place Holder
+            //Syntax Place Holder  and String Interpolation $ 
 
 
 
@@ -80,11 +80,11 @@
             //It provides a concise way to choose a default value when an expression results in a null value.)
 
 
-            //int? tickets = null;
+            int? tickets = null;
 
-            //int availabletickets = tickets ?? 0;
+            tickets = tickets ?? 0;
 
-            //Console.WriteLine($"available tickets : {availabletickets}");
+            //Console.WriteLine($"available tickets : {tickets}");
 
 
             ////////////////////////////////////////////////////////////////////////////

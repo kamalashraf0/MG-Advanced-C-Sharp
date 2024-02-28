@@ -43,7 +43,7 @@ namespace Metigator_Advanced_C_
 
             //-------------------------------------------------------------------------//
             //-------------------------------------------------------------------------//
-            //AbstractClass.cs
+            //AbstractClassDef.cs
 
 
             AbstractClassDef ab = new Child();
@@ -53,12 +53,42 @@ namespace Metigator_Advanced_C_
             //-------------------------------------------------------------------------//
             //-------------------------------------------------------------------------//
 
+            Metigator_C_ MC = new Metigator_C_();
+            MC.Chapter2();
+
+
 
 
 
 
 
             Console.ReadKey();
+
+        }
+
+
+
+
+    }
+
+    public static class Extensions
+    {
+        public static void Print<T>(this T[] source)
+        {
+            if (!source.Any())
+            {
+                Console.WriteLine("{}");
+                return;
+            }
+
+            Console.Write("{ ");
+
+            for (var i = 0; i < source.Length; i++)
+            {
+                Console.Write($"{source[i]}");
+                Console.Write(i < source.Length - 1 ? "," : "");
+            }
+            Console.WriteLine(" }");
 
         }
     }
