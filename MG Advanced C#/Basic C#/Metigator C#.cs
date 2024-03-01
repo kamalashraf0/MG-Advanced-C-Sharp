@@ -1,4 +1,6 @@
-﻿namespace MG_Advanced_C_
+﻿using MG_Advanced_C_.Basic_C_;
+
+namespace MG_Advanced_C_
 {
     class Metigator_C_
     {
@@ -218,11 +220,126 @@
             ///////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////
 
+            // Modeling  (Turn into Class )
+            //Indexing  (Every Member have array of values like string have array of characters)
+
+
+            IP ip = new IP(192, 168, 1, 1);
+
+            var stSegement = ip[0];
+
+            // Console.WriteLine(stSegement);
+
+
+            string chara = "Kamal";
+
+            char[] charaa = chara.ToCharArray();
+
+            //Console.WriteLine(charaa[0]);
+
+            int[,] matrix = new int[,]
+            {
+                {5,9,9,8,7,8,10} ,
+                {5,9,9,9,7,8,9} ,
+                {5,3,10,9,4,5,0} ,
+                {5,3,9,9,2,5,0}
+
+            };
+
+
+            MArray mar = new MArray(matrix);
+            //Console.WriteLine(mar[2, 2]);
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            //Delegates 
+
+            //Employee[] emps = new Employee[]
+            //{
+            //    new Employee {ID = 1 ,Name ="Kamal" , Gender ="M" , totalSales =60000m},
+            //    new Employee {ID = 2 ,Name ="ahmed" , Gender ="M" , totalSales =5000m},
+            //    new Employee { ID = 3 , Name = "loamy", Gender = "M", totalSales = 40000m},
+            //    new Employee {ID = 4 ,Name ="soad" , Gender ="f" , totalSales =30000m}
+
+            //};
+
+            //Report report = new Report();
+            //report.ProcessEmployee(emps, "Sales>=10000", e => e.totalSales > 10000m);   //Lambda Expression (for Defining Delegate)
+            //report.ProcessEmployee(emps, "Sales < 10000", e => e.totalSales < 10000m);
+            //report.ProcessEmployee(emps, "Sales<60000", e => e.totalSales < 60000m);
+
+
+
+
+            //MultiCast Delegate 
+
+
+
+
+            RecCal react;
+
+            //Built in Delegates
+            Action<string> BuiltinDelegate;
+
+            react = Area;
+            react += Circle;
+
+
+
+            //react(10, 9);
+
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            //Events
+            //(Events are a language feature that allows a class or object
+            //to provide notifications to other parts of the program when certain actions or state changes occur. )
+            //A parterre with Delegates
+
+            var stock = new Stock("Microsoft ");
+
+            stock.Price = 100;
+            stock.OnPriceChanged += Stock_OnPriceChanged;
+
+            //stock.ChangeStockPriceBy(0.05m);
+            stock.ChangeStockPriceBy(-0.05m);
+            //stock.ChangeStockPriceBy(0.00m);
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+
 
 
 
 
         }
+
+
+
+        private void Stock_OnPriceChanged(Stock stock, decimal oldPrice)
+        {
+            if (stock.Price > oldPrice)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{stock.Name}{stock.Price}");
+            }
+            else if (stock.Price < oldPrice)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"{stock.Name}{stock.Price}");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
+            Console.WriteLine($"{stock.Name}{stock.Price}");
+
+        }
+
+
 
 
         //Single Expression Body Method
@@ -234,6 +351,52 @@
 
 
 
+        //MultiCast Delegate 
+        public delegate void RecCal(int x, int y);
+
+
+        public void Area(int x, int y)
+        {
+            int res = x * y;
+
+            Console.WriteLine($"{x} * {y} = {res}");
+        }
+
+        public void Circle(int x, int y)
+        {
+            int res = x * y * 10;
+
+            Console.WriteLine($"{x} * {y} * 10 = {res}");
+        }
+
+
+        //Delegate to Handle the Event 
+
 
     }
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
