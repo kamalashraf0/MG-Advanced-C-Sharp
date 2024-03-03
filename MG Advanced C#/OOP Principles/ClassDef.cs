@@ -71,6 +71,12 @@
             return Math.PI * radius * radius;
         }
 
+        public ClassDef Circle()
+        {
+            int x = 5;
+            return new ClassDef(x);
+        }
+
 
     }
 

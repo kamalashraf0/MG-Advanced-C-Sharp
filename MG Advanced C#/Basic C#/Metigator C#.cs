@@ -22,7 +22,10 @@ namespace MG_Advanced_C_
             }
         }
 
-        public int sal { get; set; }
+
+        public int Amount2 => _amount;       //same as Amount 
+
+        public int sal { get; set; }         //Default Property
 
 
         public void SetAmount(int value) { Amount = value; }
@@ -296,19 +299,78 @@ namespace MG_Advanced_C_
             //Events
             //(Events are a language feature that allows a class or object
             //to provide notifications to other parts of the program when certain actions or state changes occur. )
-            //A parterre with Delegates
+            //A partner with Delegates
 
             var stock = new Stock("Microsoft ");
 
             stock.Price = 100;
-            stock.OnPriceChanged += Stock_OnPriceChanged;
+            //stock.OnPriceChanged += Stock_OnPriceChanged;
 
             //stock.ChangeStockPriceBy(0.05m);
-            stock.ChangeStockPriceBy(-0.05m);
+            //stock.ChangeStockPriceBy(-0.05m);
             //stock.ChangeStockPriceBy(0.00m);
 
             ///////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////
+
+            // Operator OverLoading 
+
+            Money money0 = new Money(10);
+            Money money = new Money(20);
+
+            Money sum = money0 + money;
+
+            Money sub = sum - money;
+
+
+
+            // Console.WriteLine($"Summtion = {sum.Amount} , Substraction = {sub.Amount}  , {sum.Amount > sub.Amount}   , {sum == sub} , {(++sum).Amount}");
+
+
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            //Struct 
+
+            student st = new student();
+
+            // Console.WriteLine(st.x);
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            //Enums  (default int )
+
+
+
+            //Console.WriteLine((int)behaviour.play);
+
+            //var behave = "4";
+
+
+            //if (Enum.TryParse(behave, out behaviour bh))
+            //{
+            //    Console.WriteLine(bh);
+            //}
+
+            //foreach (var behave1 in Enum.GetValues(typeof(behaviour)))
+            //{
+            //    Console.WriteLine($"{behave1}  =   {(int)behave1}");
+            //}
+
+
+
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+            //Generics 
+
+            var numbers = new List<int>();
+
+
+
+
 
 
 
@@ -317,6 +379,25 @@ namespace MG_Advanced_C_
 
         }
 
+        //simple enum
+        enum behaviour
+        {
+            pray = 1,
+            Sleep,
+            study,
+            play
+        }
+
+
+        //flag enum
+        [Flags]
+        enum DAY
+        {
+
+            SUNDAY = 12,
+            THRUSDAY = 24
+
+        }
 
 
         private void Stock_OnPriceChanged(Stock stock, decimal oldPrice)
@@ -370,7 +451,7 @@ namespace MG_Advanced_C_
         }
 
 
-        //Delegate to Handle the Event 
+
 
 
     }

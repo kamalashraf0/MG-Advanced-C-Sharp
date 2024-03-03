@@ -8,6 +8,8 @@
         private string name;
         private decimal price;
 
+
+        //delegate to Handle The Event 
         public delegate void StockPriceChangeHandler(Stock stock, decimal oldPrice);
 
         public event StockPriceChangeHandler OnPriceChanged;    // Declaration of Event
@@ -33,6 +35,9 @@
                 OnPriceChanged(this, oldPrice);     //firing the event 
             }
         }
+
+
+
 
     }
 }

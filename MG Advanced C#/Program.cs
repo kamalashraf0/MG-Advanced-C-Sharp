@@ -78,6 +78,15 @@ namespace Metigator_Advanced_C_
 
     }
 
+
+    struct ahmed
+    {
+        public ahmed()
+        {
+
+        }
+    }
+
     public static class Extensions
     {
         public static void Print<T>(this T[] source)
