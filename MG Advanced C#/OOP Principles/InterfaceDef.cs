@@ -1,20 +1,23 @@
 ﻿namespace MG_Advanced_C_
 {
-    interface Shape                                 //Can't Contain AccessModifiers (Public by default) or parameters
-                                                    //Can't Inherit From Abstract Class            
+    interface Shape                                  //Can't Contain AccessModifiers (Public by default) or parameters
+                                                     //(Public by default)
+                                                     //Can't Inherit From Abstract Class            
     {
 
 
-        //string name;                              //Can't Contain Fields
+        string ColorCode { get; set; }              //Can Contain Properties , Should provide implementation when you inherit it
+
+        //string name;                                //Can't Contain Fields
 
 
         void draw();                                // Methods (Just Declarations not Implementations)
                                                     // you should provide implementation when you inherit it 
     }
 
-    interface ShapeColor
+    interface ShapeColor : Shape                    //Can inherit from each other
     {
-        string ColorCode { get; set; }              //Can Contain Properties , Should provide implementation when you inherit it
+
 
         void draw();
     }
@@ -28,7 +31,7 @@
             Console.WriteLine("Draw a Circle");
         }
 
-                                                              //We used here (Explicit Interface Implementation)
+        //We used here (Explicit Interface Implementation)
         void ShapeColor.draw()
         {
             Console.WriteLine("Color The Circle");

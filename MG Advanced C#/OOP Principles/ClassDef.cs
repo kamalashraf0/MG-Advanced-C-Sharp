@@ -26,14 +26,18 @@
         //private ClassDef(float radius)
         //{
         //    this.radius = radius;
+
+
         //    //A private constructor in a class is a constructor that can only be accessed within the same class.
         //    //It cannot be accessed or called from outside the class
         //    //This can be useful for implementing design patterns like the Singleton pattern,
         //    //where only one instance of a class is allowed.
+
+
         //}
 
 
-        //Constructor with a single parameter
+        //default Constructor with a single parameter
         public ClassDef(float radius)           //Constructor initialize
         {
             this.radius = radius;
@@ -45,7 +49,7 @@
         public ClassDef() : this(2.5f)
         {
             //Overload Constructor
-            //you need to pass a default value to a Constructor with a single parameter
+            //you need to pass a default value to a Constructor with a single parameter or more parameters 
 
         }
 

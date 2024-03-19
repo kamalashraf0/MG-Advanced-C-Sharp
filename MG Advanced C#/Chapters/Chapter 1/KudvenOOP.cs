@@ -9,7 +9,7 @@
         {
             Console.WriteLine("\t");
 
-            //Syntax Place Holder  and String Interpolation $ 
+            //Syntax Place Holder and String Interpolation $ 
 
 
 
@@ -105,7 +105,7 @@
             ////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////////////
 
-            //Convert (Handling Null Values)  and  Parse (Exception Handling)
+            //Convert (Handling Null Values)  and  Parse (Exception Handling)  (Parse is better performance)
 
 
 

@@ -14,6 +14,8 @@
         public string Name { get; set; }
 
 
+
+
         public void Print()
         {
             Console.WriteLine("Abstract Print");
@@ -33,6 +35,21 @@
         public override void Print2()
         {
             Console.WriteLine("Child Print");
+        }
+
+
+        public void Radius()
+        {
+            Console.WriteLine("Circle Radius");
+        }
+    }
+
+    public class Child2() : AbstractClassDef
+    {
+
+        public override void Print2()
+        {
+            Console.WriteLine("Child2 Print");
         }
     }
 }

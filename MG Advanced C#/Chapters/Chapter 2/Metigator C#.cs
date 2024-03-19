@@ -1,4 +1,5 @@
-﻿using MG_Advanced_C_.Basic_C_;
+﻿using Metigator_Advanced_C_;
+using MG_Advanced_C_.Basic_C_;
 
 namespace MG_Advanced_C_
 {
@@ -370,14 +371,132 @@ namespace MG_Advanced_C_
 
 
 
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            //GenericDelegate 
+
+            IEnumerable<int> nums = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, };
+            GenericDelegate gd = new GenericDelegate();
+            //Console.Write($"Numbers less than 6 = ");
+            //gd.PrintNums(nums, F => F < 6);
+            //Console.Write($"Numbers bigger than 7 = ");
+            //gd.PrintNums(nums, F => F > 7);
+            //Console.Write($"Even Numbers = ");
+            //gd.PrintNums(nums, F => F % 2 == 0);
+
+            //Built in GenericDelegate
+            Action<string> print = gd.Print;
+            //print("kamal");
+
+            Func<int, int, int> cal = gd.add;
+            //Console.WriteLine(cal(5, 6));
+
+
+            Predicate<int> pred = gd.ISEven;
+            //Console.WriteLine(pred(2));
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            //Exceptions
+
+            //try
+            //{ Console.WriteLine(sumtwo()); }
+            //catch (Exception ex)
+            //{ Console.WriteLine("you r repating yourself"); }
+            //finally
+            //{ Console.WriteLine(sumtwo(5, 5)); }
+
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            //IEnumerable 
+
+
+
+            //emp em = new emp();
+
+            //foreach (var item in em)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
 
 
 
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+
+
+            //emp em = new emp { ID = 1, name = "ahmed" };
+            //emp em1 = new emp { ID = 1, name = "ahmed" };
+
+
+            //Console.WriteLine(em1 == em);       //(obj) Reference Comparison
+            //Console.WriteLine(em.Equals(em1));    //(obj) Content Comparison if you override (default reference com)
+
+
+
+            string da = "helo";
+            string ad = "helo";
+
+            //Console.WriteLine(da == ad);     //(string) Content Comparison
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            // XML Documentation for (public members )
+
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            // Datetime (Extension Method)  => should inside static class and (this) keyword 
+
+            DateTime dt = DateTime.Now;
+            DateTimeOffset dts = DateTimeOffset.UtcNow;
+
+            dt = dt.AddDays(3);  // and more methods
+            //Console.WriteLine($"{dt.DayOfWeek} \n {dts}");
+            //Console.WriteLine(dt.isWeekend());
+
+            int[] ints = { 1, 2, };
+            string[] vars = { "ahmed", "kamal" };
+
+            //ints.Print();
+            //vars.Print();
+
+
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+            ///
+            //Stream 
+
+            Stream sr = new Stream();
+
+            //Console.WriteLine(sr.getCurrencies());
 
 
 
         }
+
+
+
+
+
+
+
+
+
+        static int sumtwo(int x = 5, int y = 0)
+        {
+            return x / y;
+        }
+
 
         //simple enum
         enum behaviour

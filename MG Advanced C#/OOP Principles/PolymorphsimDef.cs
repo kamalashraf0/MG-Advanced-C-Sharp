@@ -1,5 +1,15 @@
 ﻿namespace MG_Advanced_C_
 {
+
+    sealed class sealeaded        // Can't inherit from it 
+    {                             // better performance 
+
+
+
+        public int Sealeds { get; set; }
+
+    }
+
     class PolymorphsimDef
     {
 
@@ -26,16 +36,16 @@
 
     class derivedPolymorphsimDef : childPolymorphsimDef
     {
-        /*
-        public override void method()
-        {
 
-            //When you mark a method as sealed,
-            //it means that you are explicitly preventing further overrides of that method in any derived class.
+        //public override void method()
+        //{
 
-            Console.WriteLine("derived class");
-        }
-        */
+        //    //When you mark a method as sealed,
+        //    //it means that you are explicitly preventing further overrides of that method in any derived class.
+
+        //    Console.WriteLine("derived class");
+        //}
+
 
     }
 

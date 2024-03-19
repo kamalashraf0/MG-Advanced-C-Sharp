@@ -1,4 +1,6 @@
 ﻿using MG_Advanced_C_;
+using MG_Advanced_C_.Advanced_DS_C__;
+using MG_Advanced_C_.Basic_C_;
 
 namespace Metigator_Advanced_C_
 {
@@ -10,6 +12,9 @@ namespace Metigator_Advanced_C_
             KudvenOOP kudvenOOP = new KudvenOOP();
             kudvenOOP.Chapter1();
 
+            //-------------------------------------------------------------------------//
+            Training training = new Training();
+            training.Train1();
             //-------------------------------------------------------------------------//
             //-------------------------------------------------------------------------//
 
@@ -34,24 +39,33 @@ namespace Metigator_Advanced_C_
 
             // The Principle of Polymorphism  and flexibility 
             PolymorphsimDef pd = new childPolymorphsimDef();
-            // pd.method();
+            //pd.method();
+
+            //sealeaded sd = new sealeaded();
+            //sd.Sealeds= 5;
+
+
 
             //-------------------------------------------------------------------------//
             //-------------------------------------------------------------------------//
             // InterfaceDef.cs
 
             // we will use here (TypeCast EII)
+
+
             Circle c = new Circle();
             //((Shape)c).draw();
             //((ShapeColor)c).draw();
+
 
             //-------------------------------------------------------------------------//
             //-------------------------------------------------------------------------//
             //AbstractClassDef.cs
 
 
-            AbstractClassDef ab = new Child();
-            //ab.Print();
+            AbstractClassDef ab = new Child();                  //(Abstract Class Reference)
+                                                                //ab.Print();                                     //This approach allows you to use polymorphism,
+                                                                //meaning you can assign any subclass of AbstractClassDef to the ab variable.
 
 
             //-------------------------------------------------------------------------//
@@ -61,9 +75,11 @@ namespace Metigator_Advanced_C_
             MC.Chapter2();
 
 
+            //-------------------------------------------------------------------------//
+            //-------------------------------------------------------------------------//
 
-
-
+            DataStructures ds = new DataStructures();
+            ds.Chapter3();
 
 
 
@@ -89,9 +105,9 @@ namespace Metigator_Advanced_C_
 
     public static class Extensions
     {
-        public static void Print<T>(this T[] source)
+        public static void Print<T>(this T[] value)
         {
-            if (!source.Any())
+            if (!value.Any())
             {
                 Console.WriteLine("{}");
                 return;
@@ -99,10 +115,10 @@ namespace Metigator_Advanced_C_
 
             Console.Write("{ ");
 
-            for (var i = 0; i < source.Length; i++)
+            for (var i = 0; i < value.Length; i++)
             {
-                Console.Write($"{source[i]}");
-                Console.Write(i < source.Length - 1 ? "," : "");
+                Console.Write($"{value[i]}");
+                Console.Write(i < value.Length - 1 ? "," : "");
             }
             Console.WriteLine(" }");
 
