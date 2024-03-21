@@ -13,12 +13,12 @@ namespace MG_Advanced_C_
         {
             get
             {
-                return this._amount;
+                return _amount;
             }
             private set
             {
                 //Validation             
-                this._amount = ProcessValue(value);
+                _amount = ProcessValue(value);
 
             }
         }
@@ -46,6 +46,13 @@ namespace MG_Advanced_C_
 
             //var & Dynamic 
 
+            //var is used for compile-time type inference, making code more readable and reducing verbosity,
+            //dynamic is used for runtime type resolution,
+            //providing flexibility in dealing with types
+            //whose structure is not known until runtime or when interacting with dynamic environments.
+
+
+
             var i = 5; var f = 1.56f; var b = true; var s = "Ahmed"; var ar = new int[5];
 
 
@@ -53,7 +60,7 @@ namespace MG_Advanced_C_
             dynamic x = 5;
             x = "Ahmed";
             x = true;
-
+            x = new int[5];
 
 
 
@@ -62,7 +69,7 @@ namespace MG_Advanced_C_
 
             int[,] a =
              {
-                { 1, 2 },
+               { 1, 2 },
                 { 3, 4 },
                 { 5, 6 },
                 { 7, 8 }
@@ -74,7 +81,7 @@ namespace MG_Advanced_C_
 
             //Jagged Array (Array inside Array)
 
-            int[][] jagged = new int[][]
+            int[][] jagged =
             {
                 new int[] { 1, 2 },
                 new int[] { 3,4 },
@@ -109,9 +116,9 @@ namespace MG_Advanced_C_
 
             string s1 = null;
 
-            var s2 = s1?.ToUpper();
+            var s2 = s1?.ToUpper();          //The ?. operator is used to guard against a null reference exception.
 
-            //Console.WriteLine(s2);
+            // Console.WriteLine(s2);
 
             ///////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////
@@ -144,7 +151,7 @@ namespace MG_Advanced_C_
 
 
 
-            //(Expression Switch)  => (Lambda Operator)   _ (otherwise)
+            //(Expression Switch)  (=>) Lambda Operator  (_) otherwise
 
             var carNum = 13;
 
@@ -177,7 +184,7 @@ namespace MG_Advanced_C_
             ///////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////
 
-            // Boxing and UnBoxing  (Covert from value type to reference type)
+            // Boxing and UnBoxing  (Convert from value type to reference type)
 
             int ss = 1001;
 
@@ -232,7 +239,7 @@ namespace MG_Advanced_C_
 
             var stSegement = ip[0];
 
-            // Console.WriteLine(stSegement);
+            //Console.WriteLine(stSegement);
 
 
             string chara = "Kamal";
@@ -257,7 +264,7 @@ namespace MG_Advanced_C_
             ///////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////
 
-            //Delegates 
+            //Delegates  (Method Pointer)
 
             //Employee[] emps = new Employee[]
             //{
@@ -267,6 +274,9 @@ namespace MG_Advanced_C_
             //    new Employee {ID = 4 ,Name ="soad" , Gender ="f" , totalSales =30000m}
 
             //};
+
+
+
 
             //Report report = new Report();
             //report.ProcessEmployee(emps, "Sales>=10000", e => e.totalSales > 10000m);   //Lambda Expression (for Defining Delegate)
@@ -291,6 +301,8 @@ namespace MG_Advanced_C_
 
 
 
+
+
             //react(10, 9);
 
 
@@ -298,6 +310,7 @@ namespace MG_Advanced_C_
             ///////////////////////////////////////////////////////////////////////
 
             //Events
+
             //(Events are a language feature that allows a class or object
             //to provide notifications to other parts of the program when certain actions or state changes occur. )
             //A partner with Delegates
@@ -310,6 +323,9 @@ namespace MG_Advanced_C_
             //stock.ChangeStockPriceBy(0.05m);
             //stock.ChangeStockPriceBy(-0.05m);
             //stock.ChangeStockPriceBy(0.00m);
+
+
+
 
             ///////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////
@@ -559,14 +575,14 @@ namespace MG_Advanced_C_
         {
             int res = x * y;
 
-            Console.WriteLine($"{x} * {y} = {res}");
+            Console.WriteLine($" Area : {x} * {y} = {res}");
         }
 
         public void Circle(int x, int y)
         {
             int res = x * y * 10;
 
-            Console.WriteLine($"{x} * {y} * 10 = {res}");
+            Console.WriteLine($"Cicle : {x} * {y} * 10 = {res}");
         }
 
 

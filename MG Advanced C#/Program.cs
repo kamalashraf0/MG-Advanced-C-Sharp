@@ -1,6 +1,6 @@
 ﻿using MG_Advanced_C_;
 using MG_Advanced_C_.Advanced_DS_C__;
-using MG_Advanced_C_.Basic_C_;
+using MG_Advanced_C_.Revision;
 
 namespace Metigator_Advanced_C_
 {
@@ -93,7 +93,7 @@ namespace Metigator_Advanced_C_
 
 
     }
-
+    delegate int CalculateDelegate(int num1, int num2);
 
     struct ahmed
     {

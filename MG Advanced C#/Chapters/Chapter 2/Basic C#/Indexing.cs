@@ -4,7 +4,7 @@
     {
 
 
-        private int[] Segments = new int[4];
+        private int[] _segments = new int[4];
 
         public int this[int index]                          //property for Indexing   
                                                             //this => take an object from the class to Get The Index of array 
@@ -12,25 +12,25 @@
             get
             {
 
-                return Segments[index];
+                return _segments[index];
             }
 
             set
             {
-                Segments[index] = value;
+                _segments[index] = value;
             }
         }
 
         public IP(int segment1, int segment2, int segment3, int segment4)
         {
 
-            Segments[0] = segment1;
-            Segments[1] = segment2;
-            Segments[2] = segment3;
-            Segments[3] = segment4;
+            _segments[0] = segment1;
+            _segments[1] = segment2;
+            _segments[2] = segment3;
+            _segments[3] = segment4;
         }
 
-        public string IPAdress => string.Join(".", Segments);      //(Char separator , array)
+        public string IPAdress => string.Join(".", _segments);      //(Char separator , array)
 
 
     }

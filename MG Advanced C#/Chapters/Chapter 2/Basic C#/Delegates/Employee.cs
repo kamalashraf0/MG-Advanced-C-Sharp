@@ -10,6 +10,9 @@
 
         public decimal totalSales { get; set; }
 
+        public int Salary { get; set; }
+
+
 
 
     }
