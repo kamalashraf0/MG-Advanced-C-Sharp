@@ -15,9 +15,9 @@ namespace MG_Advanced_C_.Basic_C_
 
         public emp()
         {
-            int x = int.Parse(Console.ReadLine());
-            int y = int.Parse(Console.ReadLine());
-            int z = int.Parse(Console.ReadLine());
+            int x = 1;
+            int y = 2;
+            int z = 3;
             _values = new int[] { x, y, z };
         }
 
@@ -36,13 +36,13 @@ namespace MG_Advanced_C_.Basic_C_
 
         //without ctor
 
-        //Equals override for content comparison
+        // Equals override for content comparison
         public override bool Equals(object? obj)
         {
-            if (obj == null)
+            if (obj == null && obj! is emp)
                 return false;
-            if (obj is emp)
-                return true;
+            //if (obj is emp)
+            //    return true;
 
             var emp = (emp)obj;
 

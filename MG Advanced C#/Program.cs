@@ -1,6 +1,7 @@
 ﻿using MG_Advanced_C_;
 using MG_Advanced_C_.Advanced_DS_C__;
 using MG_Advanced_C_.Revision;
+using System.Numerics;
 
 namespace Metigator_Advanced_C_
 {
@@ -83,7 +84,6 @@ namespace Metigator_Advanced_C_
 
 
 
-
             Console.ReadKey();
 
         }
@@ -122,6 +122,12 @@ namespace Metigator_Advanced_C_
             }
             Console.WriteLine(" }");
 
+        }
+
+        public static T EADD<T>(this T value, T value1, T value2, out T result) where T : INumber<T>
+        {
+            result = default;
+            return value2 + value2;
         }
     }
 }

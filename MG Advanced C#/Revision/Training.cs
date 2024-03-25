@@ -1,4 +1,5 @@
 ﻿using MG_Advanced_C_.Basic_C_;
+using System.Numerics;
 
 namespace MG_Advanced_C_.Revision
 {
@@ -147,7 +148,7 @@ namespace MG_Advanced_C_.Revision
 
             CE.ECalculateSalary += CE_ECalculateSalary;   //Events 
 
-            CE.Calculatesalary(lemployees, s => s.Salary < 8000);
+            //CE.Calculatesalary(lemployees, s => s.Salary < 8000);
 
 
             //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
@@ -164,6 +165,101 @@ namespace MG_Advanced_C_.Revision
             //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
             //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
 
+            //DE Example
+
+            List<Worker> workers = new();
+
+            for (var i = 0; i <= 10; i++)
+            {
+                workers.Add(new Worker
+                {
+                    ID = i,
+                    Name = $"Employee {i}",
+                    Salary = Random.Shared.Next(8000, 32000)
+
+                });
+
+            }
+
+
+            var calsalary = new DE();
+
+            //calsalary.CalSalaryEvent += Calsalary_CalSalaryEvent;
+
+            //calsalary.CalculateSalary(workers, "Salary > 15000", w => w.Salary > 15000);
+            //calsalary.CalculateSalary(workers, "Salary < 15000", w => w.Salary < 15000);
+
+
+
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+
+            //Enumms 
+
+            //Console.WriteLine((int)days.Tuesday);
+
+
+            //foreach (var day in Enum.GetValues(typeof(days)))
+            //{
+            //    Console.WriteLine($"{day} = {(int)day}");
+            //}
+
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+
+            //Override ToString() Represent custom string representation
+
+            //var animal = new Animal("Lion");
+            //var animal2 = new Animal("Lion");
+            //Console.WriteLine(animal);
+
+            //Console.WriteLine(animal.Equals(animal2));    //Using override Equals 
+            //Console.WriteLine(animal == animal2);         //Using operator overloading
+
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+
+            //IEnumerable
+
+            var ie = new IEmployee();
+            for (int i = 0; i < 10; i++)
+            {
+
+
+                ie.EmpSalary($"Employee {i}", Random.Shared.Next(1000, 5000));
+            }
+
+
+            foreach (var e in ie)
+            {
+                // Console.WriteLine($"{e.Name} {e.Salary}");
+            }
+
+
+
+            var il = new IEnumtrain();
+
+            il.lawsSalary("Mesari Zedan ", 32000);
+            il.lawsSalary("Mesari Zedan 2  ", 34000);
+            il.lawsSalary("Mesari Zedan 3  ", 36000);
+
+
+            for (int i = 0; i < il.Count(); i++)
+            {
+                //Console.WriteLine($"{il[i].Name} {il[i].Salary}");
+            }
+
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+
+            // Console.WriteLine(Add(5d, 6.5f));
+
+
+
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+
+
 
 
 
@@ -172,9 +268,39 @@ namespace MG_Advanced_C_.Revision
 
         }
 
+
+
+        public T Add<T>(T num1, T num2) where T : INumber<T>
+        {
+            return num1 + num2;
+        }
+
+
+        enum days : byte
+        {
+            Saturday,
+            Sunday,
+            Monday,
+            Tuesday,
+            Wednesday,
+            Thursday,
+            Friday
+
+        }
+
+
+
+
+
+
+        private void Calsalary_CalSalaryEvent(Worker w)
+        {
+            Console.WriteLine($" Name :{w.Name}  Salary : {w.Salary}");
+        }
+
         private void CE_ECalculateSalary(Employee e, int salary)
         {
-            Console.WriteLine($" Name :{e.Name}  Salary : {e.Salary}");
+            Console.WriteLine();
         }
 
         public void Params(params int[] ara)
@@ -206,6 +332,9 @@ namespace MG_Advanced_C_.Revision
         { return x - y; }
     }
 
+    class G<T> where T : class, new()
+    {
 
+    }
 
 }

@@ -1,5 +1,6 @@
 ﻿using Metigator_Advanced_C_;
 using MG_Advanced_C_.Basic_C_;
+using MG_Advanced_C_.Chapters.Chapter_2.Basic_C_;
 
 namespace MG_Advanced_C_
 {
@@ -318,7 +319,7 @@ namespace MG_Advanced_C_
             var stock = new Stock("Microsoft ");
 
             stock.Price = 100;
-            //stock.OnPriceChanged += Stock_OnPriceChanged;
+            stock.OnPriceChanged += Stock_OnPriceChanged;
 
             //stock.ChangeStockPriceBy(0.05m);
             //stock.ChangeStockPriceBy(-0.05m);
@@ -341,7 +342,7 @@ namespace MG_Advanced_C_
 
 
 
-            // Console.WriteLine($"Summtion = {sum.Amount} , Substraction = {sub.Amount}  , {sum.Amount > sub.Amount}   , {sum == sub} , {(++sum).Amount}");
+            // Console.WriteLine($"Summtion = {sum.Amount} , Substraction = {sub.Amount} , {sum.Amount > sub.Amount}, {money0 < money}   , {sum == sub} , {(++sum).Amount} ");
 
 
 
@@ -361,11 +362,12 @@ namespace MG_Advanced_C_
 
 
 
+
+
+
             //Console.WriteLine((int)behaviour.play);
 
             //var behave = "4";
-
-
             //if (Enum.TryParse(behave, out behaviour bh))
             //{
             //    Console.WriteLine(bh);
@@ -432,6 +434,8 @@ namespace MG_Advanced_C_
 
 
 
+
+
             //emp em = new emp();
 
             //foreach (var item in em)
@@ -445,10 +449,10 @@ namespace MG_Advanced_C_
             ///////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////
 
-
+            //Equals
 
             //emp em = new emp { ID = 1, name = "ahmed" };
-            //emp em1 = new emp { ID = 1, name = "ahmed" };
+            emp em1 = new emp { ID = 1, name = "ahmed" };
 
 
             //Console.WriteLine(em1 == em);       //(obj) Reference Comparison
@@ -496,21 +500,84 @@ namespace MG_Advanced_C_
 
             //Console.WriteLine(sr.getCurrencies());
 
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            //Recursion
+
+            //PrintFilePath(@"F:\Movies & Series", 1);
+            var size = PrintsizePath(@"F:\Movies & Series");
+
+            //Console.WriteLine(size);
+
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            //MultiThreading (Single sequential flow of activities)
+
+            // (Thread)no parameter or one argument(object type)  , depending on (Context Switching) via Threads
+
+            var MT = new MultiThreading();
+
+            //var th1 = new Thread(MT.ProcessState1);
+            //var th2 = new Thread(MT.ProcessState2);               //OlD Way
+            //th1.Start();
+            //th2.Start();
+
+
+            var cts = new CancellationTokenSource();
+            ThreadPool.QueueUserWorkItem(MT.ProcessState1, cts.Token);
+
+            ThreadPool.QueueUserWorkItem(MT.ProcessState2, cts.Token);
+
+            cts.Cancel();   // for Cancel the process thread anytime 
+
+
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+            //
+
+
+        }
+
+        ///////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////
+
+        //Recursison 
+        public void PrintFilePath(string filePath, int level)
+        {
+            foreach (var filename in Directory.GetFiles(filePath))
+            {
+                Console.WriteLine($"{new string('-', level)} {new FileInfo(filename).Name}");
+
+            }
+
+            foreach (var FolderName in Directory.GetDirectories(filePath))
+            {
+                Console.WriteLine($"{new string('-', level + 1)} {new DirectoryInfo(FolderName).Name}");
+                PrintFilePath(FolderName, level + 1);
+            }
+
 
 
         }
 
 
-
-
-
-
-
-
-
-        static int sumtwo(int x = 5, int y = 0)
+        public long PrintsizePath(string filePath)
         {
-            return x / y;
+            long size = 0;
+            foreach (var filename in Directory.GetFiles(filePath))
+            {
+                size += new FileInfo(filename).Length;
+            }
+
+            foreach (var FolderName in Directory.GetDirectories(filePath))
+            {
+                size += PrintsizePath(FolderName);
+            }
+            return size;
         }
 
 
@@ -535,6 +602,19 @@ namespace MG_Advanced_C_
         }
 
 
+
+
+
+
+        static int sumtwo(int x = 5, int y = 0)
+        {
+            return x / y;
+        }
+
+
+
+
+
         private void Stock_OnPriceChanged(Stock stock, decimal oldPrice)
         {
             if (stock.Price > oldPrice)
@@ -550,8 +630,9 @@ namespace MG_Advanced_C_
             else
             {
                 Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine($"{stock.Name}{stock.Price}");
             }
-            Console.WriteLine($"{stock.Name}{stock.Price}");
+
 
         }
 

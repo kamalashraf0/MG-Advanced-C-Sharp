@@ -30,10 +30,13 @@
         {
             decimal oldPrice = this.Price;
             this.price += Math.Round(this.price * percent, 2);
-            if (OnPriceChanged != null)
-            {
-                OnPriceChanged(this, oldPrice);     //firing the event 
-            }
+            //if (OnPriceChanged != null)
+            //{
+            //    OnPriceChanged(this, oldPrice);     //firing the event 
+            //}
+
+
+            OnPriceChanged?.Invoke(this, oldPrice);  //trigger the event 
         }
 
 
