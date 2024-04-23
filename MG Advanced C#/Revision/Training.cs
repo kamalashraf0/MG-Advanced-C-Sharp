@@ -137,6 +137,8 @@ namespace MG_Advanced_C_.Revision
                     Name = $"Employee {i}",
                     Gender = Random.Shared.Next(2) == 0 ? "Male" : "Female",
                     Salary = Random.Shared.Next(5000, 12000)
+
+
                 });
             }
 
@@ -232,7 +234,7 @@ namespace MG_Advanced_C_.Revision
 
             foreach (var e in ie)
             {
-                // Console.WriteLine($"{e.Name} {e.Salary}");
+                //Console.WriteLine($"{e.Name} {e.Salary}");
             }
 
 
@@ -258,7 +260,17 @@ namespace MG_Advanced_C_.Revision
 
             //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
             //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+            //Arracycount using deleagtes
 
+            //ArrayCount.ArrayCounts();
+
+
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||//
+
+
+            //PrintObjectsNavigation.Print();
+            //PrintObjectsNavigation.BPrint();
 
 
 
@@ -334,6 +346,14 @@ namespace MG_Advanced_C_.Revision
 
     class G<T> where T : class, new()
     {
+
+    }
+
+
+    class train
+    {
+
+
 
     }
 

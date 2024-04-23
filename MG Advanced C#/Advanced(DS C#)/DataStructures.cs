@@ -44,8 +44,8 @@ namespace MG_Advanced_C_.Advanced_DS_C__
                           "Having just completed my military services";
 
 
-            Dictionary d = new Dictionary();
-            // d.Dictionariees(article);
+            //Dictionary d = new Dictionary();
+            //d.Dictionariees(article);
 
 
             ///////////////////////////////////////////////////////////////////////

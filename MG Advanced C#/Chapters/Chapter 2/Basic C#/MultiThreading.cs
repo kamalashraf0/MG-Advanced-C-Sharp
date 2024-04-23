@@ -3,7 +3,7 @@
     class MultiThreading
     {
 
-        // (Thread)no parameter or one argument(object type)  , depending on (Context Switching) via Threads
+        // (Thread) no parameter or one argument(object type)  , depending on (Context Switching) via Threads
 
         private static object _lock = new();
         public void ProcessState1(object? state)

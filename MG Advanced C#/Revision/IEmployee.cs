@@ -1,11 +1,10 @@
-﻿using MG_Advanced_C_.Basic_C_;
-using System.Collections;
+﻿using System.Collections;
 
 namespace MG_Advanced_C_.Revision
 {
-    public class IEmployee : IEnumerable<Employee>
+    public class IEmployee : IEnumerable<IEmployee>
     {
-        private readonly List<Employee> lemployees = new();
+        private readonly List<IEmployee> lemployees = new();
 
         public int ID { get; set; }
 
@@ -26,10 +25,10 @@ namespace MG_Advanced_C_.Revision
                 throw new ArgumentNullException("name");
             }
 
-            lemployees.Add(new Employee { Name = Name, Salary = salary });
+            lemployees.Add(new IEmployee { Name = Name, Salary = salary });
         }
 
-        public IEnumerator<Employee> GetEnumerator()
+        public IEnumerator<IEmployee> GetEnumerator()
         {
             foreach (var item in lemployees)
             {

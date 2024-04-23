@@ -1,0 +1,51 @@
+﻿using MG_LINQ;
+
+namespace LINQ
+{
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            //Pure and Impure Functions      (Ease to understand , Ease to test)
+
+
+            //Pprint.Print();
+
+
+            //--------------------------------------------------------------------------------------//
+            //--------------------------------------------------------------------------------------//
+
+
+            // Functional Programming 
+
+            Action action = () => Console.WriteLine();          // No Parameter and no callback value
+            Func<int, int> func = x => x;                        // it takes parameter and callback value
+            Predicate<int> predicate = x => x % 2 == 0;           // it takes parameter and callback bool
+
+            //--------------------------------------------------------------------------------------//
+            //--------------------------------------------------------------------------------------//
+
+            //LINQ
+
+            LINQ_Tut.LINQ();
+
+            //--------------------------------------------------------------------------------------//
+            //--------------------------------------------------------------------------------------//
+
+            //ProjectionOperation
+
+            ProjectionOperation.Pprojection();
+
+
+
+            Console.ReadKey();
+        }
+
+
+
+    }
+
+
+}

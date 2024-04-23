@@ -65,7 +65,6 @@ namespace MG_Advanced_C_
 
 
 
-
             // Multi Dimensional Array [,]
 
             int[,] a =
@@ -101,6 +100,8 @@ namespace MG_Advanced_C_
             var slice = 3..5;
             var slices = arr[slice];
 
+
+
             //slices.Print();
 
             ///////////////////////////////////////////////////////////////////////
@@ -119,7 +120,7 @@ namespace MG_Advanced_C_
 
             var s2 = s1?.ToUpper();          //The ?. operator is used to guard against a null reference exception.
 
-            // Console.WriteLine(s2);
+            //Console.WriteLine(s2);
 
             ///////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////
@@ -327,7 +328,6 @@ namespace MG_Advanced_C_
 
 
 
-
             ///////////////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////////
 
@@ -436,7 +436,7 @@ namespace MG_Advanced_C_
 
 
 
-            //emp em = new emp();
+            emp em = new emp();
 
             //foreach (var item in em)
             //{
@@ -526,12 +526,12 @@ namespace MG_Advanced_C_
             //th2.Start();
 
 
-            var cts = new CancellationTokenSource();
-            ThreadPool.QueueUserWorkItem(MT.ProcessState1, cts.Token);
+            //var cts = new CancellationTokenSource();
+            //ThreadPool.QueueUserWorkItem(MT.ProcessState1, cts.Token);
 
-            ThreadPool.QueueUserWorkItem(MT.ProcessState2, cts.Token);
+            //ThreadPool.QueueUserWorkItem(MT.ProcessState2, cts.Token);
 
-            cts.Cancel();   // for Cancel the process thread anytime 
+            //cts.Cancel();   // for Cancel the process thread anytime 
 
 
             ///////////////////////////////////////////////////////////////////////
