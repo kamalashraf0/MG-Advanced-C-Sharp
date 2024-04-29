@@ -1,4 +1,6 @@
-﻿namespace LINQ
+﻿using LINQ;
+
+namespace MG_LINQ.LINQ
 {
 
     class PureAndImPure : Program
@@ -35,7 +37,7 @@
 
             foreach (int i in PI.Numbers)
             {
-                Console.WriteLine(i);
+                // Console.WriteLine(i);
 
             }
 
@@ -47,7 +49,7 @@
             Console.WriteLine();
             foreach (int i in newList)
             {
-                Console.WriteLine(i);
+                //Console.WriteLine(i);
             }
         }
     }

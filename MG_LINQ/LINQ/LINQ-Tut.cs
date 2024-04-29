@@ -1,4 +1,4 @@
-﻿namespace MG_LINQ
+﻿namespace MG_LINQ.LINQ
 {
     public static class LINQ_Tut
     {
@@ -8,7 +8,7 @@
 
             var evenNumbersUsingWhereMethod = ints.Where(x => x % 2 == 0);  // Where (return bool)
 
-            var evenNumbersUsingEnumerableWhereMethod = Enumerable.Where(ints, x => x % 2 == 0);
+            var evenNumbersUsingEnumerableWhereMethod = ints.Where(x => x % 2 == 0);
 
             #region QuerySyntax
             #endregion

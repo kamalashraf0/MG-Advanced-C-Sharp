@@ -1,4 +1,4 @@
-﻿namespace MG_LINQ
+﻿namespace MG_LINQ.LINQ
 {
     static class ProjectionOperation
     {
@@ -11,12 +11,12 @@
 
             var print = list.Select(x => x);
 
-            var print2 = list2.Select(x => x * x);
+            var print2 = list2.Select(x => x > 5);
 
 
-            foreach (var item in print)
+            foreach (var item in print2)
             {
-                //Console.WriteLine(x);
+                //Console.WriteLine(item);
             }
 
 
@@ -32,8 +32,16 @@
 
             };
 
+            List<List<int>> intss = new()
+           {
+               new() { 1, 2, 3 },
+               new() { 1, 2,4 },
+               new() { 1, 2}
+           };
 
-            var senlist = senetences.SelectMany(x => x.Split(' '));
+
+            // using to flatten list of lists into  a single sequence of integers.
+            var senlist = intss.SelectMany(x => x);
 
             foreach (var item in senlist)
             {
@@ -45,7 +53,7 @@
 
             List<Employee> emp = new();
 
-            Random r = new Random();
+
 
             for (int i = 0; i < 10; i++)
             {
@@ -64,14 +72,23 @@
             }
 
 
+            var emps = Load.LoadEmpoyees();
+
+
+
             var onlyfirstname = emp.SelectMany(x => x.FirstName.Split(" "));
 
-            var onlyskillQuerySyntax =
-                (from e in emp
-                 from skill in e.Skills
-                 select skill).Distinct();
 
-            foreach (var item in onlyfirstname)
+
+
+            var onlyskillQuerySyntax =
+                 (
+                 from e in emp
+                 from skill in e.Skills
+                 select skill
+                 ).Distinct();
+
+            foreach (var item in onlyskillQuerySyntax)
             {
                 //Console.WriteLine(item);
             }
@@ -103,10 +120,17 @@
                 from team in firstnames.Zip(secondnames)
                 select $"{team.First.FirstName} {team.Second.LastName}";
 
-            foreach (var item in zipQuerySyntax)
+
+
+
+            foreach (var item in zip)
             {
-                Console.WriteLine(item);
+                //Console.WriteLine(item);
             }
+
+
+
+
 
 
 
