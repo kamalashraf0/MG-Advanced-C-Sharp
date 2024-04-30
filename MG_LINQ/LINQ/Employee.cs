@@ -12,6 +12,8 @@
         public string FirstName { get; set; } = string.Empty;
 
         public string Department { get; set; }
+
+        public int DepartmentID { get; set; }
         public string LastName { get; set; } = string.Empty;
 
         public decimal Salary { get; set; }
@@ -44,7 +46,7 @@
                $"{Id} \t " +
                $"{FirstName} \t " +
                $"{Email} \t " +
-               $"{Department}\t\t" +
+               $"{DepartmentID}\t\t" +
                $"{Salary} \t ");
 
 

@@ -16,13 +16,28 @@
                     FirstName = firstname,
                     Email = Random.Shared.Next(2) == 0 ? $"{firstname}@gmail.com" : $"{firstname}@yahoo.com",
                     LastName = Random.Shared.Next(2) == 0 ? $"Ashraf{i}" : null,
-                    Department = Random.Shared.Next(2) == 0 ? "HR" : "Technical",
+                    DepartmentID = Random.Shared.Next(1, 5),
                     Salary = Random.Shared.Next(5000, 80000),
 
 
 
                 };
             }
+
+        }
+
+        public static IEnumerable<Department> LoadDepartment()
+        {
+
+            return new List<Department>
+                {
+                    new Department {ID= 1, Name ="HR"},
+                    new Department {ID= 2,Name ="IT"},
+                    new Department {ID= 3,Name ="Finance"},
+                    new Department {ID= 4,Name ="Sales"},
+                    new Department {ID= 5,Name="Accounting"}
+
+                };
 
         }
     }
