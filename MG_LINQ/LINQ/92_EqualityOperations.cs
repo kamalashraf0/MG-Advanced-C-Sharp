@@ -22,7 +22,7 @@
             #endregion
 
             var equal = lis1.SequenceEqual(lis2);
-            Console.WriteLine(equal);
+            //Console.WriteLine(equal);
 
 
 

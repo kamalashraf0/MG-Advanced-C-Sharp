@@ -64,5 +64,17 @@
         }
 
 
+        public override bool Equals(object? obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;           // checks if other is empty
+
+            if (ReferenceEquals(this, obj)) return true;           //checks if other is identical 
+
+            if (obj.GetType() != this.GetType()) return false;      //check the types for them 
+
+            var other = (Employee)obj;
+
+            return EmployeeNu == other.EmployeeNu && FirstName == other.FirstName;
+        }
     }
 }
