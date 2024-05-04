@@ -49,16 +49,11 @@
                $"{DepartmentID}\t\t" +
                $"{Salary} \t ");
 
-
-
             //return string.Format($"" +
             //    $"{Id}\t" +
             //    $"{FirstName}\t" +
             //    $"{LastName}\t\t" +
             //    $"{Skills[Random.Shared.Next(Skills.Count())]} ");
-
-
-
 
             // return $"{EmployeeNu}";
         }

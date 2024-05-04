@@ -36,7 +36,7 @@
 
             foreach (var item in result1)
             {
-                Console.WriteLine(item);
+                //Console.WriteLine(item);
             }
 
 
@@ -51,7 +51,7 @@
 
             foreach (var item in result2)
             {
-                // Console.WriteLine(item);
+                //Console.WriteLine(item);
             }
 
 
@@ -63,7 +63,7 @@
 
 
             var result3 = emps.Except(emps2);
-            var result4 = emps.ExceptBy(emps2.Select(x => x.EmployeeNu), x => x.EmployeeNu);
+            var result4 = emps.ExceptBy(emps2.Select(x => x.Id), x => x.Id);
 
             foreach (var item in result4)
             {
