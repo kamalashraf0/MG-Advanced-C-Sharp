@@ -9,7 +9,7 @@
             var e1 = emps.First();
             var e2 = emps.FirstOrDefault();
             var e3 = emps.Last();
-            var e4 = emps.FirstOrDefault();
+            var e4 = emps.LastOrDefault();
 
             var lis1 = new List<Employee>(new[] { e1, e2, e3 });
             var lis2 = new List<Employee>(new[] { e1, e2, e4 });

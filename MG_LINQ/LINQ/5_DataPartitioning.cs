@@ -66,12 +66,13 @@
             #region Pagination
             #endregion
 
-            var p = emps.Paginate(0, 0);      // split into groups and get number of records
+            var p = emps.Paginate(0, 0);      // split into pages and get number of records
 
-            foreach (var item in p)
-            {
-                // Console.WriteLine(item);
-            }
+
+
+
+
+
 
         }
 

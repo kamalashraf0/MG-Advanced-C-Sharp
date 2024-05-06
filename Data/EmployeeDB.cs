@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace Data
+namespace Data.Emp
 {
-    public class Employee
+    public class EmployeeDB
     {
         [Key]
         public int E_ID { get; set; }
@@ -14,6 +14,12 @@ namespace Data
 
         public string E_City { get; set; }
 
+
+        public override string ToString()
+        {
+            return $"{E_ID}\t{E_Name}\t{E_Age}\t{Salary}";
+            //return $"{Salary}";
+        }
 
     }
 }

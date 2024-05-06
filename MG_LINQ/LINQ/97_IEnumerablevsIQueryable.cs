@@ -1,4 +1,6 @@
-﻿namespace MG_LINQ.LINQ
+﻿using DataModel;
+using Model;
+namespace MG_LINQ.LINQ
 {
     public class _97_IEnumerablevsIQueryable
     {
@@ -10,16 +12,21 @@
         public static void PIEnumerable()
         {
 
-            var emps = Load.LoadEmpoyees();
 
-            IEnumerable<Employee> employees = emps;
 
-            var morethan5000 = employees.Where(x => x.Salary > 5000);
 
-            foreach (var employee in morethan5000)
+            var Db = new TrainingContext();
+
+            IEnumerable<EmployeeModel> emps = Db.EmpModel;
+
+            var bigSalary = emps.Where(x => x.E_Salary > 30000);
+
+            foreach (var emp in bigSalary)
             {
-                //Console.WriteLine(employee);
+
+                //Console.WriteLine(emp);
             }
+
 
         }
 
@@ -29,16 +36,17 @@
         #endregion
         public static void PIQueryable()
         {
-            var emps = Load.LoadEmpoyees();
+            var Db = new TrainingContext();
 
-            //IQueryable<Employee> employees = (IQueryable<Employee>)emps;
+            IQueryable<EmployeeModel> emps = Db.EmpModel;
 
-            //var morethan5000 = employees.Where(x => x.Salary > 5000);
+            var bigSalary = emps.Where(x => x.E_Salary > 30000);
 
-            //foreach (var employee in morethan5000)
-            //{
-            //    //Console.WriteLine(employee);
-            //}
+            foreach (var emp in bigSalary)
+            {
+
+                //Console.WriteLine(emp);
+            }
 
 
         }
