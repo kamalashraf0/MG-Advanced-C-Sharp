@@ -1,14 +1,20 @@
 ﻿using MG_LINQ.LINQ;
+using MG_LINQ.Revision;
+using Model;
+
 
 
 namespace LINQ
 {
-    class Program
+    class Program : TrainingContext
     {
 
 
         static void Main(string[] args)
         {
+
+
+
             //1)Pure and Impure Functions      (Ease to understand , Ease to test)
 
 
@@ -150,6 +156,19 @@ namespace LINQ
 
             ExtensionMethods.PMethod();
 
+            //--------------------------------------------------------------------------------------//
+            //--------------------------------------------------------------------------------------//
+
+            //20)LINQ Anatomy
+
+            // LINQAnatomy.PLINQ();
+
+            //--------------------------------------------------------------------------------------//
+            //--------------------------------------------------------------------------------------//
+
+            //Revision
+
+            Revision_1.Print();
 
             Console.ReadKey();
         }

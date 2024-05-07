@@ -26,16 +26,16 @@
 
         }
 
-        public static IEnumerable<Department> LoadDepartment()
+        public static IEnumerable<Departments> LoadDepartment()
         {
 
-            return new List<Department>
+            return new List<Departments>
                 {
-                    new Department {ID= 1, Name ="HR"},
-                    new Department {ID= 2,Name ="IT"},
-                    new Department {ID= 3,Name ="Finance"},
-                    new Department {ID= 4,Name ="Sales"},
-                    new Department {ID= 5,Name="Accounting"}
+                    new Departments {ID= 1, Name ="HR"},
+                    new Departments {ID= 2,Name ="IT"},
+                    new Departments {ID= 3,Name ="Finance"},
+                    new Departments {ID= 4,Name ="Sales"},
+                    new Departments {ID= 5,Name="Accounting"}
 
                 };
 

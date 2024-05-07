@@ -1,6 +1,6 @@
 ﻿namespace MG_LINQ
 {
-    public class Department
+    public class Departments
     {
 
         public int ID { get; set; }
