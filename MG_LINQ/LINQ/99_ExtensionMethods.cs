@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using DataModel.DBContext;
 
 namespace MG_LINQ.LINQ
 {

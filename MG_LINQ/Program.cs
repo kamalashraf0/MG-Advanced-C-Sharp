@@ -1,6 +1,6 @@
-﻿using MG_LINQ.LINQ;
+﻿using DataModel.DBContext;
+using MG_LINQ.LINQ;
 using MG_LINQ.Revision;
-using Model;
 
 
 
@@ -161,7 +161,7 @@ namespace LINQ
 
             //20)LINQ Anatomy
 
-            // LINQAnatomy.PLINQ();
+            LINQAnatomy.PLINQ();
 
             //--------------------------------------------------------------------------------------//
             //--------------------------------------------------------------------------------------//

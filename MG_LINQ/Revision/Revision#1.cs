@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using DataModel.DBContext;
+
 
 namespace MG_LINQ.Revision
 {
@@ -7,8 +8,16 @@ namespace MG_LINQ.Revision
         public static void Print()
         {
             //
-            var db = new TrainingContext();
+            //var db = new TrainingContext();
+            //var model = db.EmpModel;
+            //var db2 = new DepartmentContext();
+            //var dpmodel = db2.DeptModel;
+
+            var db = new ApplicationDbContext();
             var model = db.EmpModel;
+            var dpmodel = db.DeptModel;
+
+
 
 
             //████████████████████████████████████████████████████████████████████████//
@@ -36,6 +45,7 @@ namespace MG_LINQ.Revision
             {
                 Console.WriteLine(ex.Message.ToString());
             }
+
             //████████████████████████████████████████████████████████████████████████//
 
             //Select   (it return bool for expression)
@@ -184,8 +194,61 @@ namespace MG_LINQ.Revision
 
             //████████████████████████████████████████████████████████████████████████//
 
+            //joins
+
+            var joinresult = dpmodel.Join(model, dept => dept.D_ID, emp => emp.D_ID,
+        (dept, emp) => new EmployeeDept
+        {
+            Department = dept.D_Name
+            ,
+            Employees = emp.E_Name
+        });
+
+            foreach (var item in joinresult)
+            {
+                //Console.WriteLine($"{item.Employees}  ({item.Department})");
+            }
+
+            var Groupjoinresult = dpmodel.GroupJoin(model, dept => dept.D_ID, emp => emp.D_ID,
+        (dept, emp) => new Joins
+        {
+            Department = dept.D_Name
+            ,
+            Employees = emp.Select(e => e).ToList()
+        });
+
+
+
+            foreach (var item in Groupjoinresult)
+            {
+                //Console.WriteLine($"\n({item.Department})\n");
+
+                foreach (var names in item.Employees)
+                {
+                    //Console.WriteLine(names);
+                }
+            }
+
+
+            var joinsResultQuery = from d in dpmodel
+                                   join e in model on d.D_ID equals e.D_ID into empgroup
+                                   select new { DepartmentName = d.D_Name, Employees = empgroup };
+
+            foreach (var item in joinsResultQuery)
+            {
+                //Console.WriteLine($"\n{item.DepartmentName}\n");
+                foreach (var names in item.Employees)
+                {
+                    //Console.WriteLine(names.E_Name);
+                }
+            }
+
+            //████████████████████████████████████████████████████████████████████████//
+
+
 
         }
-
     }
+
+
 }

@@ -22,7 +22,11 @@
             //Get Employee Records for every Department
 
             var res2 = deps.GroupJoin(emps, dep => dep.ID, emp => emp.DepartmentID,
-                (dep, emp) => new Group { Department = dep.Name, Employees = emp.Select(e => e.FirstName).ToList() });
+                (dep, emp) => new Group
+                {
+                    Department = dep.Name,
+                    Employees = emp.Select(e => e.FirstName).ToList()
+                });
 
 
 
@@ -31,11 +35,11 @@
                     join emp in emps on dep.ID equals emp.DepartmentID into empGroup
                     select empGroup;
 
-            foreach (var item in res2)
+            foreach (var item in res2QuerySyntax)
             {
-                // Console.WriteLine($"\n{item.Department}\n");
+                //Console.WriteLine($"\n{item}\n");
 
-                foreach (var name in item.Employees)
+                foreach (var name in item)
                 {
                     //Console.WriteLine(name);
                 }
