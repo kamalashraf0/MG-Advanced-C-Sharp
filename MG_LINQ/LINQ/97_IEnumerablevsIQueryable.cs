@@ -15,9 +15,9 @@ namespace MG_LINQ.LINQ
 
 
 
-            var Db = new TrainingContext();
+            var Db = new ApplicationDbContext();
 
-            IEnumerable<EmployeeModel> emps = Db.EmpModel;
+            var emps = Db.EmpModel;
 
             var bigSalary = emps.Where(x => x.E_Salary > 30000);
 
@@ -36,7 +36,7 @@ namespace MG_LINQ.LINQ
         #endregion
         public static void PIQueryable()
         {
-            var Db = new TrainingContext();
+            var Db = new ApplicationDbContext();
 
             IQueryable<EmployeeModel> emps = Db.EmpModel;
 

@@ -10,7 +10,7 @@ namespace MG_LINQ.LINQ
             //Method Chaining and Extension Method to make statement look like a sentence (Readability)
             #endregion
 
-            var DB = new TrainingContext();
+            var DB = new ApplicationDbContext();
 
             var Model = DB.EmpModel;
 

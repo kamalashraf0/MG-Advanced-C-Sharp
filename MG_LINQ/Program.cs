@@ -6,7 +6,7 @@ using MG_LINQ.Revision;
 
 namespace LINQ
 {
-    class Program : TrainingContext
+    class Program : ApplicationDbContext
     {
 
 

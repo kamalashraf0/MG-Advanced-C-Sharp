@@ -32,7 +32,7 @@
 
             foreach (var item in arr)
             {
-                //Console.WriteLine(item);
+                // Console.WriteLine(item);
             }
         }
 

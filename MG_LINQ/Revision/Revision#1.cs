@@ -144,21 +144,24 @@ namespace MG_LINQ.Revision
 
             //Chunk split into groups
 
+            var charlist = model.ToList();
             int numberofEmployees = 10;
-            var chucnkresult = model.AsEnumerable().Chunk(numberofEmployees).ToList();
+            var chucnkresult = charlist.Chunk(numberofEmployees).ToList();
 
 
-            /* for (int i = 0; i < chucnkresult.Count; i++)
-             {
-                 Console.WriteLine($"█group#{i + 1}█\n");
-                 foreach (var item in chucnkresult[i])
-                 {
 
-                     Console.WriteLine(item);
-                 }
-                 Console.WriteLine();
-             }*/
+            /*
+            for (int i = 0; i < chucnkresult.Count; i++)
+            {
+                Console.WriteLine($"█group#{i + 1}█\n");
+                foreach (var item in chucnkresult[i])
+                {
 
+                    Console.WriteLine(item);
+                }
+                Console.WriteLine();
+            }
+            */
 
             //████████████████████████████████████████████████████████████████████████//
 
@@ -176,21 +179,26 @@ namespace MG_LINQ.Revision
 
             //████████████████████████████████████████████████████████████████████████//
 
-            var GroupResult = model.ToLookup(x => x.E_Name.StartsWith("A")).ToList();
+            //it split the records to groups based on the condition 
+            //here it will make a group that have all names that starts with "A"
+            //and group for the rest of records
+
+            var GroupResult = model.ToLookup(x => x.E_Name.ToLowerInvariant().StartsWith("s")).ToList();
             GroupResult.Reverse();
 
-
+            /*
             for (int i = 0; i < GroupResult.Count; i++)
             {
 
-
+                Console.WriteLine("Group : ");
                 foreach (var item in GroupResult[i])
                 {
-                    //
-                    //Console.WriteLine(item);
-                }
-            }
 
+                    Console.WriteLine(item);
+                }
+                Console.WriteLine();
+            }
+            */
 
             //████████████████████████████████████████████████████████████████████████//
 
@@ -209,12 +217,15 @@ namespace MG_LINQ.Revision
                 //Console.WriteLine($"{item.Employees}  ({item.Department})");
             }
 
+            //████████████████████████████████████████████████████████████████████████//
+
+
             var Groupjoinresult = dpmodel.GroupJoin(model, dept => dept.D_ID, emp => emp.D_ID,
         (dept, emp) => new Joins
         {
             Department = dept.D_Name
             ,
-            Employees = emp.Select(e => e).ToList()
+            EmployeesName = emp.Select(e => e.E_Name).ToList()
         });
 
 
@@ -223,7 +234,7 @@ namespace MG_LINQ.Revision
             {
                 //Console.WriteLine($"\n({item.Department})\n");
 
-                foreach (var names in item.Employees)
+                foreach (var names in item.EmployeesName)
                 {
                     //Console.WriteLine(names);
                 }
@@ -239,14 +250,104 @@ namespace MG_LINQ.Revision
                 //Console.WriteLine($"\n{item.DepartmentName}\n");
                 foreach (var names in item.Employees)
                 {
-                    //Console.WriteLine(names.E_Name);
+                    //Console.WriteLine(names);
                 }
             }
 
             //████████████████████████████████████████████████████████████████████████//
 
+            //Repeat 
+
+            var repeat = model.Where(x => x.E_Name == "Seddik");
+
+            var repeatresult = Enumerable.Repeat(repeat, 10);
+
+            var flatten = repeatresult.SelectMany(x => x);
+
+            foreach (var item in flatten)
+            {
+                //Console.WriteLine(item);
+            }
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Range
+
+            var rangeresult = model.Where(x => x.E_Name == "Seddik");
+            var range = Enumerable.Range(1, 10);
+
+            var repeatedSequence = range.SelectMany(_ => rangeresult);
+
+            foreach (var item in repeatedSequence)
+            {
+                //Console.WriteLine(item);
+            }
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //ElementAt 
+
+            // it return the specific record - 1 because it's index starts from zero
+            //and default for object (null) if it's null
+
+            var Element = model.ElementAtOrDefault(14 - 1);
+
+            //Console.WriteLine(Element);
 
 
+            //████████████████████████████████████████████████████████████████████████//
+
+            //First   - Last   - Single
+
+            var first = model.FirstOrDefault();
+
+            //Console.WriteLine(first);
+
+            var last = model.OrderBy(x => x.E_Name).LastOrDefault();
+
+            //Console.WriteLine(last);
+
+            //if it single record it print it back if not it not print Anything 
+
+            var single = model.SingleOrDefault(x => x.E_ID == 1);
+            //Console.WriteLine(single);
+
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //SequenceEqual
+
+            var seq1 = model.Select(x => x.E_Name).ToList();
+
+            var seq2 = model.Select(x => x.E_Name).ToList();
+
+            var seqequal0 = seq1 == seq2;              // here it compare the reference
+
+            var seqequal = seq1.SequenceEqual(seq2);  // here it compare the content
+
+            //Console.WriteLine(seqequal);
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Concat
+
+
+
+            var concat = model.Concat(model);
+
+            foreach (var item in concat)
+            {
+                //Console.WriteLine(item);
+            }
+
+            //array concat
+
+            var concatarr = new[] { model, model }.SelectMany(x => x);
+
+            foreach (var item in concatarr)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 

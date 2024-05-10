@@ -11,7 +11,7 @@ namespace MG_LINQ.LINQ
             //more Readability ,Dynamic  
             #endregion
 
-            var Db = new TrainingContext();
+            var Db = new ApplicationDbContext();
 
             var emps = Db.EmpModel;
 

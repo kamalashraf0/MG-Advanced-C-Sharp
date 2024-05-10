@@ -41,7 +41,7 @@ namespace MG_LINQ.LINQ
 
         public static void PMethod()
         {
-            var DB = new TrainingContext();
+            var DB = new ApplicationDbContext();
 
             var model = DB.EmpModel;
 
