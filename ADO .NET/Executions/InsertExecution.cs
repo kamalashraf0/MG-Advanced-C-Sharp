@@ -19,6 +19,7 @@ namespace ADO_.NET.Executions
 
             var insertemployee = new EmpModel
             {
+
                 E_ID = 16,
                 E_Name = "Ibrahim"
             };
