@@ -39,11 +39,9 @@ List the key features of your project. You can use bullet points for this.
 
 ## Folders
 
-### [MG Advanced C#](./Chapters/Chapter 1)
+### [MG Advanced C#](./Chapters)
 
-### [MG Advanced C#](./Chapters/Chapter 2)
-
-### [MG Advanced C#](./OOP Princepls)
+### [MG Advanced C#](./OOP Principles)
 
 ### [MG Advanced C#](./Advanced(DS C#))
 
