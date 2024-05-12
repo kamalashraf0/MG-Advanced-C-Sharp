@@ -42,11 +42,11 @@ List the key features of your project. You can use bullet points for this.
 
 ## Folders
 
-### [MG Advanced C#]
+### [MG Advanced C#](./Chapters)
 
 ### [MG_LINQ](./LINQ)
 
-### [ADO .NET]
+### [ADO .NET](./Executions)
 
 
 ## Installation
