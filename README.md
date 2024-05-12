@@ -11,9 +11,9 @@ Our journey begins with a deep dive into Advanced C# programming, exploring topi
 To enhance our understanding of data access in .NET, we explore various Object-Relational Mapping (ORM) frameworks including ADO.NET, Dapper, NHibernate, and EF Core. Through practical examples and exercises, we gain hands-on experience in leveraging these tools to interact with databases, execute queries, and manage data entities effectively.
 
 # Learning Resources 
-[Metigator Channel]([https://example.com/metigator](https://www.youtube.com/@Metigator)
-[Passionate Coders Channel]([https://example.com/passionate-coders](https://www.youtube.com/@PassionateCoders)
-[Kudvencat Channel]([https://example.com/kudvencat](https://www.youtube.com/@kudvenkatarabic)
+[Metigator Channel](https://www.youtube.com/@Metigator)
+[Passionate Coders Channel](https://www.youtube.com/@PassionateCoders)
+[Kudvencat Channel](https://www.youtube.com/@kudvenkatarabic)
 
 
 ## Table of Contents
