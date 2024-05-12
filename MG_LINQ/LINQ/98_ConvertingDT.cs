@@ -57,7 +57,7 @@ namespace MG_LINQ.LINQ
 
             foreach (var item in result4)
             {
-                // Console.WriteLine(item);
+                //Console.WriteLine(item);
             }
 
 

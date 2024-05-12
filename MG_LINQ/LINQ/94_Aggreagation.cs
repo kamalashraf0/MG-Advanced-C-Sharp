@@ -8,7 +8,7 @@
 
             var arr = new[] { "Kamal", "Ahmed", "Loay", "Zeyad", "Fathi" };
 
-            var result = arr.Aggregate((a, b) => $"{a}, {b}");
+            var result = arr.Aggregate((a, b) => $"{a} , {b}");
 
             //Console.WriteLine(result);
 

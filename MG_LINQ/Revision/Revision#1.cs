@@ -1,9 +1,11 @@
-﻿using DataModel.DBContext;
+﻿using DataModel;
+using DataModel.DBContext;
+using System.Linq.Expressions;
 
 
 namespace MG_LINQ.Revision
 {
-    public class Revision_1
+    static public class Revision_1
     {
         public static void Print()
         {
@@ -212,13 +214,25 @@ namespace MG_LINQ.Revision
             Employees = emp.E_Name
         });
 
+
+
+
             foreach (var item in joinresult)
             {
                 //Console.WriteLine($"{item.Employees}  ({item.Department})");
             }
 
+            var joinresult2 = dpmodel.Join(model, dept => dept.D_ID, emp => emp.D_ID,
+            (dept, emp) => new { dept.D_Name, emp.E_Name });
+
+            foreach (var item in joinresult2)
+            {
+                Console.WriteLine($"{item.E_Name}  ({item.D_Name})");
+            }
+
             //████████████████████████████████████████████████████████████████████████//
 
+            //GroupJoins
 
             var Groupjoinresult = dpmodel.GroupJoin(model, dept => dept.D_ID, emp => emp.D_ID,
         (dept, emp) => new Joins
@@ -237,6 +251,22 @@ namespace MG_LINQ.Revision
                 foreach (var names in item.EmployeesName)
                 {
                     //Console.WriteLine(names);
+                }
+            }
+
+
+            var Groupjoinresult2 = dpmodel.GroupJoin(model, dept => dept.D_ID, emp => emp.D_ID,
+    (dept, emp) => new { dept.D_Name, empnames = emp.Select(x => x.E_Name) });
+
+
+
+            foreach (var item in Groupjoinresult2)
+            {
+                //Console.WriteLine($"\n({item.D_Name})\n");
+
+                foreach (var names in item.empnames)
+                {
+                    // Console.WriteLine(names);
                 }
             }
 
@@ -346,8 +376,234 @@ namespace MG_LINQ.Revision
 
             foreach (var item in concatarr)
             {
-                Console.WriteLine(item);
+                //Console.WriteLine(item);
             }
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Aggregation
+
+            //Params(1, 5, 3, 9, 18, 7);
+            //SParams("kamal", "Ahmed", "Loay");
+
+
+            var MX = model.Max(x => x.E_Salary);
+            //Console.WriteLine(MX);
+            var MXby = model.AsEnumerable().MaxBy(x => x.E_ID);
+            //Console.WriteLine(MXby);
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            // UNION - Intersect - Except 
+
+
+            var strlist = new[] { "Kamal", "Omar", "Seddik", "Zain", "Salah" };
+
+
+            var modnamelist = model.Select(x => x.E_Name).ToList();
+
+            var union = modnamelist.Union(strlist);
+
+            var aggregate = union.Aggregate((a, b) => $"{a} - {b}");
+
+            foreach (var item in aggregate)
+            {
+                //Console.Write(item);
+            }
+
+            var unionby = model.AsEnumerable().UnionBy(model, s => s);
+
+            foreach (var item in unionby)
+            {
+                //Console.WriteLine(item);
+            }
+
+
+
+            var intersect = modnamelist.Intersect(strlist);
+
+            foreach (var item in intersect)
+            {
+                //Console.WriteLine(item);
+            }
+
+            var interesectby = model.AsEnumerable().IntersectBy(model, s => s);
+
+            foreach (var item in unionby)
+            {
+                //Console.WriteLine(item);
+            }
+
+            var except = strlist.Except(modnamelist);
+
+            foreach (var item in except)
+            {
+                //Console.WriteLine(item);
+            }
+
+
+            var exceptby = model.AsEnumerable().ExceptBy(model, s => s);
+
+            foreach (var item in unionby)
+            {
+                //Console.WriteLine(item);
+            }
+            //████████████████████████████████████████████████████████████████████████//
+
+            // Expression Tree
+
+            /*           num => num % 2 == 0        */
+
+            Expression<Func<int, bool>> isEven = num => num % 2 == 0;
+
+            ParameterExpression Num = isEven.Parameters[0];
+            BinaryExpression MainBody = (BinaryExpression)isEven.Body;
+            BinaryExpression leftbody = (BinaryExpression)MainBody.Left;
+            ParameterExpression leftNum = (ParameterExpression)leftbody.Left;
+            ConstantExpression Constant1 = (ConstantExpression)leftbody.Right;
+            ConstantExpression Constant2 = (ConstantExpression)MainBody.Right;
+
+            //Console.WriteLine($"Expression Tree : {Num.Name} => " +
+            //  $"{leftNum.Name} {leftbody.NodeType} {Constant1.Value} {MainBody.NodeType} {Constant2.Value} ");
+
+
+            ParameterExpression Lnum = Expression.Parameter(typeof(int));
+            ConstantExpression L2 = Expression.Constant(2);
+            BinaryExpression LMod = Expression.Modulo(Lnum, L2);
+            ConstantExpression L0 = Expression.Constant(0);
+            BinaryExpression Lequal = Expression.Equal(LMod, L0);
+
+            Expression<Func<int, bool>> IsLambdaEven =
+                Expression.Lambda<Func<int, bool>>(Lequal, new ParameterExpression[] { Lnum });
+
+
+            Func<int, bool> ItIsEven = IsLambdaEven.Compile();
+
+            //Console.WriteLine(ItIsEven(9));
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Method Chaining (Functional Programming)
+
+            var FluentAPI = model.OrderBy(x => x.E_Name).Skip(10).Take(2).
+                                  OrderByDescending(x => x.E_Salary).ThenByDescending(x => x.E_Age);
+
+            foreach (var item in FluentAPI)
+            {
+                //Console.WriteLine(item);
+            }
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Defferd Execution
+
+            var delist = new List<int>() { 1, 2, 3, 4, 5, 6 };
+
+            var deresult = delist.Where(x => x > 2);    // here we save the query functionality not the result 
+
+
+
+            foreach (var item in deresult)
+            {
+                // Console.WriteLine(item);
+            }
+            Console.WriteLine(" --------------------------------- ");
+
+            delist.AddRange(new[] { 9, 12, 13 });
+
+            //Console.WriteLine("Deffered Execution : ");
+
+            foreach (var item in deresult)
+            {
+                // Console.WriteLine(item);
+            }
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Imediate Execution
+
+            deresult.ToList();    // here we save the result into list
+
+
+            IQueryable<EmployeeModel> Imresult = model.Select(x => x);
+
+            foreach (var item in Imresult)
+            {
+                //Console.WriteLine(item);
+            }
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //ofType
+
+            var Isresult = model.Select(x => x is EmployeeModel);  //return bool if records from this class
+
+            foreach (var item in Isresult)
+            {
+                // Console.WriteLine(item);
+            }
+
+            //(oftype)  tells you that i want to print the records that belong to this class (EmployeeModel)
+            var oftyperesult = model.AsEnumerable().OfType<EmployeeModel>().Select(x => x);
+
+            foreach (var item in oftyperesult)
+            {
+                //Console.WriteLine(item);
+            }
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Extension method (Partioning) Paginate
+
+            var pageresult = model.RPaginate(1, 5);
+
+
+            foreach (var item in pageresult)
+            {
+                // Console.WriteLine(item);
+            }
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Distinct
+
+            var disresult = model.AsEnumerable().DistinctBy(x => x.D_ID);
+
+            foreach (var item in disresult)
+            {
+                //Console.WriteLine(item);
+            }
+
+            //████████████████████████████████████████████████████████████████████████//
+
+
+        }
+
+
+        public static IEnumerable<T> RPaginate<T>(this IEnumerable<T> source, int page = 1, int pagesize = 10)
+        {
+            if (source == null) throw new ArgumentNullException();
+
+            if (pagesize < 0) pagesize = 10;
+
+            if (page < 0) page = 1;
+
+            var Pages = source.Skip((page - 1) * pagesize).Take(pagesize).ToList();
+
+            return Pages;
+        }
+
+        public static void Params(params int[] arr)
+        {
+            var aggregate = arr.Aggregate(0, (a, b) => a + b);
+
+            Console.WriteLine(aggregate);
+        }
+
+        public static void SParams(IEnumerable<string> union, params string[] arr)
+        {
+            var aggregate = arr.Aggregate((a, b) => $"{a} , {b}");
+
+            Console.WriteLine(aggregate);
         }
     }
 

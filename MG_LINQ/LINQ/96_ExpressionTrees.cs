@@ -7,7 +7,7 @@ namespace MG_LINQ.LINQ
     {
         public static void PExTree()
         {
-            //Expression class is the parent of all Expressions like (Lambda ,parameter , binary )
+            //Expression class is the parent of all Expressions like (Lambda ,parameter , binary)
 
 
             Expression<Func<int, bool>> isEvenEx = num => num % 2 == 0;
