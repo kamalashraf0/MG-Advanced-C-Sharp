@@ -42,7 +42,7 @@ List the key features of your project. You can use bullet points for this.
 
 ## Folders
 
-## [MG Advanced C#]
+### [MG Advanced C#]
 
 ### [MG_LINQ](./LINQ)
 
