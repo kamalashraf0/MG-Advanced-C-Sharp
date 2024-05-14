@@ -1,4 +1,4 @@
-﻿using ADO_.NET.Executions;
+﻿using ADO_.NET.ORMs.NHibernate;
 
 namespace ADO_.NET
 {
@@ -7,6 +7,9 @@ namespace ADO_.NET
         static void Main(string[] args)
         {
 
+
+            #region ADO .NET
+            #endregion
 
 
 
@@ -32,7 +35,45 @@ namespace ADO_.NET
 
             //████████████████████████████████████████████████████████████████████████//
 
-            Transaction.Print();
+            //Transaction.Print();
+
+            //████████████████████████████████████████████████████████████████████████//
+
+
+
+
+
+            #region Dapper
+            #endregion
+
+
+
+
+            //SelectBinding.Print();
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Insert.Print();
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Update.Print();
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //Delete.Print();
+
+            //████████████████████████████████████████████████████████████████████████//
+
+            //MultipleQuery.Print();
+
+
+
+
+            #region NHibernate
+            #endregion
+
+            Session.Print();
 
             Console.ReadKey();
 
